@@ -10,6 +10,7 @@ Mein komplettes Claude Code Setup: Skills, Plugins, MCP-Server und Tools.
 - [gstack (Garry Tan's Engineering Stack)](#gstack)
 - [Installation](#installation)
 - [Nutzungsbeispiele](#nutzungsbeispiele)
+- [Claude Code Terminal – Shortcuts & Befehle](#claude-code-terminal--shortcuts--befehle)
 
 ---
 
@@ -352,6 +353,71 @@ claude
 ---
 
 ## Lizenz
+
+## Claude Code Terminal – Shortcuts & Befehle
+
+### Optimale Nutzung
+
+Claude Code ist kein klassischer Chat – es ist ein terminalnativer AI-Pair-Programmer, der direkt in deinem Projekt arbeitet. Der Schlüssel zur produktiven Nutzung liegt in drei Gewohnheiten:
+
+1. **Starte jedes neue Repo mit `/init`** – damit wird eine `CLAUDE.md` erstellt, die Claude dauerhaft Kontext über dein Projekt gibt. Das spart dir bei jeder Session Erklärungsaufwand.
+2. **Nutze Plan Mode (`Shift+Tab`) vor jeder grösseren Änderung** – so bekommst du erst eine Analyse, bevor Code verändert wird. Das verhindert, dass Claude in die falsche Richtung läuft.
+3. **Arbeite in kleinen, klaren Aufgaben** – statt „baue mir die ganze App" lieber einzelne Features oder Fixes beauftragen. Claude Code liefert deutlich bessere Ergebnisse, wenn der Scope klar ist.
+
+Weitere Tipps: Nutze `/compact` regelmässig bei langen Sessions, um Token zu sparen. Verwende `Ctrl+S` zum Stashen von Prompts, wenn du zwischendurch etwas anderes fragen willst. Und verbinde deine IDE mit `/ide`, damit Diffs und File-Reviews in VS Code statt im Terminal landen.
+
+---
+
+### Keyboard Shortcuts (im REPL)
+
+| Kürzel | Funktion |
+|---|---|
+| `Escape` | Generation abbrechen |
+| `Escape Escape` | Letzten Prompt bearbeiten / Conversation zurückspulen |
+| `Ctrl+C` | Abbrechen (2x = Hard Exit) |
+| `Ctrl+D` | Session beenden |
+| `Ctrl+L` | Screen clearen (History bleibt) |
+| `Ctrl+S` | Prompt stashen (zwischenparken) |
+| `Ctrl+R` | History durchsuchen |
+| `Ctrl+G` | Prompt im externen Editor öffnen |
+| `Ctrl+B` | Bash-Befehl in Background verschieben |
+| `Ctrl+O` | Transcript Viewer öffnen |
+| `Shift+Tab` | Permission-Modus wechseln (Normal → Auto → Plan) |
+| `\ + Enter` | Mehrzeilige Eingabe (überall) |
+| `↑ / ↓` | Command History navigieren |
+
+### Slash Commands
+
+| Befehl | Funktion |
+|---|---|
+| `/init` | CLAUDE.md für das Repo erstellen |
+| `/compact` | Kontext komprimieren (Token sparen) |
+| `/clear` | Chat-History löschen, frisch starten |
+| `/review` | Code-Review (Bugs, Style, Performance) |
+| `/cost` | Bisherige Token-Kosten anzeigen |
+| `/context` | Context-Breakdown anzeigen |
+| `/model` | Model wechseln (Sonnet/Opus) |
+| `/ide` | VS Code / JetBrains anbinden |
+| `/resume` | Frühere Session wiederaufnehmen |
+| `/terminal-setup` | Shift+Enter für Newlines einrichten |
+| `/add-dir <path>` | Zusätzliche Verzeichnisse einbinden |
+| `/mcp` | MCP Server verwalten |
+| `/btw` | Side-Question (kein Tool-Zugriff, nutzt nur bestehenden Kontext) |
+
+### CLI Flags
+
+| Flag | Funktion |
+|---|---|
+| `claude -c` | Letzte Session fortsetzen |
+| `claude -r <id>` | Bestimmte Session resumieren |
+| `claude -p "query"` | One-Shot ohne REPL |
+| `claude --max-turns 5` | Agent-Loops begrenzen |
+| `claude --output-format json` | JSON-Output für Automation |
+| `cat file \| claude -p "..."` | Piped Input verarbeiten |
+| `claude --allowedTools "Read" "Write"` | Tool-Permissions setzen |
+| `claude --add-dir ../other` | Weitere Verzeichnisse einbinden |
+
+---
 
 Dieses Setup-Guide ist frei verfuegbar. Die einzelnen Tools haben eigene Lizenzen:
 - gstack: MIT
