@@ -8,6 +8,7 @@ Mein komplettes Claude Code Setup: Skills, Plugins, MCP-Server und Tools.
 - [Plugins (Claude Code)](#plugins-claude-code)
 - [MCP-Server (Integrationen)](#mcp-server-integrationen)
 - [gstack (Garry Tan's Engineering Stack)](#gstack)
+- [GitNexus (Code Knowledge Graph)](#gitnexus)
 - [Installation](#installation)
 - [Nutzungsbeispiele](#nutzungsbeispiele)
 - [Claude Code Terminal – Shortcuts & Befehle](#claude-code-terminal--shortcuts--befehle)
@@ -99,6 +100,7 @@ MCP-Server verbinden Claude Code mit externen Tools und APIs.
 | **Claude Preview** | Dev-Server starten, Screenshots, Accessibility-Tests |
 | **Indeed** | Job-Suche, Firmendaten, Gehaltsinformationen |
 | **Computer Use** | macOS Desktop-Automatisierung |
+| **GitNexus** | Code Knowledge Graph, Impact-Analyse, Refactoring, PR-Review |
 
 ### MCP-Server konfigurieren
 
@@ -265,6 +267,56 @@ npx claude-mem install
 
 ---
 
+## GitNexus
+
+[GitNexus](https://www.npmjs.com/package/gitnexus) - Code Knowledge Graph der dein Repository als Graph indexiert und als MCP-Server bereitstellt. Analysiert Abhaengigkeiten, Impact und Ausfuehrungsfluesse.
+
+### Features
+
+- Automatische Graph-Analyse: Nodes (Dateien, Funktionen, Methoden), Edges (Abhaengigkeiten), Clusters (Communities)
+- Impact-Analyse: Was bricht, wenn du etwas aenderst?
+- Kontext-Suche: 360-Grad-Ansicht von Code-Symbolen (Caller, Callees, Prozesse)
+- MCP-Server: Tools direkt in Claude Code und Cursor verfuegbar
+- Skills: 7 Skills fuer Debugging, Refactoring, PR-Review, Impact-Analyse, Exploration
+
+### GitNexus Skills
+
+| Skill | Beschreibung |
+|---|---|
+| `/gitnexus-guide` | Verfuegbare Tools und Workflow-Referenz |
+| `/gitnexus-exploring` | Architektur verstehen, Ausfuehrungsfluesse verfolgen |
+| `/gitnexus-debugging` | Bugs tracen, Fehlerquellen finden |
+| `/gitnexus-refactoring` | Sicheres Umbenennen, Extrahieren, Verschieben |
+| `/gitnexus-impact-analysis` | Blast-Radius vor Aenderungen pruefen |
+| `/gitnexus-pr-review` | PR reviewen mit Graph-Kontext |
+| `/gitnexus-cli` | CLI-Befehle (analyze, status, wiki, query) |
+
+### GitNexus CLI
+
+| Befehl | Beschreibung |
+|---|---|
+| `npx gitnexus analyze` | Repository indexieren |
+| `npx gitnexus setup` | MCP fuer Claude Code / Cursor einrichten |
+| `npx gitnexus status` | Index-Status pruefen |
+| `npx gitnexus query "<suche>"` | Freitext-Suche im Knowledge Graph |
+| `npx gitnexus context <symbol>` | 360-Grad-Ansicht eines Symbols |
+| `npx gitnexus impact <target>` | Blast-Radius-Analyse |
+| `npx gitnexus wiki` | Repository-Wiki generieren (braucht API Key) |
+| `npx gitnexus list` | Alle indexierten Repos anzeigen |
+
+### GitNexus installieren
+
+```bash
+# 1. Repository analysieren
+cd dein-projekt
+npx gitnexus analyze
+
+# 2. MCP-Server einrichten (Claude Code + Cursor)
+npx gitnexus setup
+```
+
+---
+
 ## Installation - Komplettsetup
 
 ### 1. Bun installieren (Voraussetzung fuer gstack)
@@ -293,11 +345,19 @@ npx claude-mem install
 /plugin install frontend-design@claude-plugins-official
 ```
 
-### 5. Skills in claude.ai installieren
+### 5. GitNexus einrichten
+
+```bash
+cd dein-projekt
+npx gitnexus analyze
+npx gitnexus setup
+```
+
+### 6. Skills in claude.ai installieren
 
 Oeffne [claude.ai/customize/skills](https://claude.ai/customize/skills) und installiere alle Anthropic Skills.
 
-### 6. Claude Code neustarten
+### 7. Claude Code neustarten
 
 ```
 /exit
@@ -423,4 +483,5 @@ Dieses Setup-Guide ist frei verfuegbar. Die einzelnen Tools haben eigene Lizenze
 - gstack: MIT
 - Superpowers: MIT
 - claude-mem: AGPL-3.0
+- GitNexus: MIT
 - Anthropic Skills: Siehe jeweilige LICENSE.txt
