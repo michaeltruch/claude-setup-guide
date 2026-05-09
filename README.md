@@ -27,10 +27,10 @@ Claude Code ist ein agentischer AI-Coding-Assistent, der im Terminal, in IDEs, a
 
 | Methode | Befehl | Hinweis |
 |---|---|---|
-| **Native Install (empfohlen)** | `curl -fsSL https://claude.ai/install.sh \| bash` | macOS, Linux, WSL – Auto-Updates |
+| **Native Install (empfohlen)** | `curl -fsSL https://claude.ai/install.sh` &#124; `bash` | macOS, Linux, WSL – Auto-Updates |
 | **Homebrew** | `brew install --cask claude-code` | macOS – kein Auto-Update, `brew upgrade` noetig |
 | **WinGet** | `winget install Anthropic.ClaudeCode` | Windows – kein Auto-Update |
-| **Windows PowerShell** | `irm https://claude.ai/install.ps1 \| iex` | Windows nativ |
+| **Windows PowerShell** | `irm https://claude.ai/install.ps1` &#124; `iex` | Windows nativ |
 | **NPM (veraltet)** | `npm install -g @anthropic-ai/claude-code` | Wird nicht mehr empfohlen |
 
 ### Plattformen
@@ -681,7 +681,7 @@ Weitere Tipps: Nutze `/compact` regelmaessig bei langen Sessions, um Token zu sp
 | `claude` | Interaktive Session starten | `claude` |
 | `claude "query"` | Session mit initialem Prompt | `claude "explain this project"` |
 | `claude -p "query"` | One-Shot ohne REPL (Print Mode) | `claude -p "explain this function"` |
-| `cat file \| claude -p "..."` | Piped Input verarbeiten | `cat logs.txt \| claude -p "explain"` |
+| `cat file` &#124; `claude -p "..."` | Piped Input verarbeiten | `cat logs.txt` &#124; `claude -p "explain"` |
 | `claude -c` | Letzte Session fortsetzen | `claude -c` |
 | `claude -c -p "query"` | Letzte Session fortsetzen (SDK) | `claude -c -p "Check for type errors"` |
 | `claude -r "<session>"` | Session per ID oder Name resumieren | `claude -r "auth-refactor"` |
