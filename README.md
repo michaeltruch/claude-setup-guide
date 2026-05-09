@@ -9,6 +9,7 @@ Mein komplettes Claude Code Setup: Skills, Plugins, MCP-Server und Tools.
 - [MCP-Server (Integrationen)](#mcp-server-integrationen)
 - [gstack (Garry Tan's Engineering Stack)](#gstack)
 - [GitNexus (Code Knowledge Graph)](#gitnexus)
+- [ECC (Everything Claude Code)](#ecc-everything-claude-code)
 - [Installation](#installation)
 - [Nutzungsbeispiele](#nutzungsbeispiele)
 - [Claude Code Terminal – Shortcuts & Befehle](#claude-code-terminal--shortcuts--befehle)
@@ -317,6 +318,104 @@ npx gitnexus setup
 
 ---
 
+## ECC (Everything Claude Code)
+
+[Everything Claude Code](https://github.com/affaan-m/everything-claude-code) (ECC) von Affaan - Universelles Rules-, Agents- und Skills-Framework fuer Claude Code. Liefert sprachspezifische Coding-Rules, Quality-Workflows und spezialisierte Skills. v2.0.0-rc.1.
+
+### Profile
+
+| Profil | Inhalt |
+|---|---|
+| `minimal` | Rules, Agents, Commands, Platform-Configs, Workflow-Quality (ohne Hooks Runtime) |
+| `full` | Alles inkl. Hooks Runtime fuer globale Enforcement |
+
+### Rules (sprachspezifisch)
+
+ECC installiert opinionierte Coding-Rules fuer jede Sprache unter `~/.claude/rules/ecc/`:
+
+| Kategorie | Beschreibung |
+|---|---|
+| `common/` | Agents, Code Review, Coding Style, Development Workflow, Git, Hooks, Patterns, Performance, Security, Testing |
+| `typescript/` | TypeScript-spezifische Rules |
+| `python/` | Python-spezifische Rules |
+| `rust/` | Rust-spezifische Rules |
+| `golang/` | Go-spezifische Rules |
+| `kotlin/` | Kotlin-spezifische Rules |
+| `java/` | Java-spezifische Rules |
+| `cpp/` | C++-spezifische Rules |
+| `swift/` | Swift-spezifische Rules |
+| `dart/` | Dart/Flutter-spezifische Rules |
+| `csharp/` | C#-spezifische Rules |
+| `php/` | PHP-spezifische Rules |
+| `perl/` | Perl-spezifische Rules |
+| `web/` | Web/Frontend-spezifische Rules |
+
+### ECC Skills
+
+Skills werden unter `~/.claude/skills/ecc/` installiert:
+
+| Skill | Beschreibung |
+|---|---|
+| `council` | Multi-Perspektiven Code Review mit virtuellen Experten |
+| `tdd-workflow` | Test-Driven Development Workflow |
+| `verification-loop` | Automatische Verifikations-Schleifen |
+| `e2e-testing` | End-to-End Testing Workflow |
+| `eval-harness` | Deterministische Repository-Audits mit Scorecard |
+| `code-tour` | Codebase-Touren erstellen und navigieren |
+| `continuous-learning` | Patterns aus Sessions extrahieren und speichern |
+| `continuous-learning-v2` | Erweiterte Version mit Observer-Agents |
+| `strategic-compact` | Intelligentes Context-Compacting |
+| `plankton-code-quality` | Code-Quality Pipeline |
+| `skill-stocktake` | Skill-Portfolio analysieren |
+| `hookify-rules` | Rules in Hooks umwandeln |
+| `iterative-retrieval` | Iterative Code-Retrieval |
+| `agent-introspection-debugging` | Agent-Verhalten debuggen |
+| `agent-sort` | Agents priorisieren und sortieren |
+| `ai-regression-testing` | AI-spezifische Regressionstests |
+| `configure-ecc` | ECC-Konfiguration anpassen |
+
+### ECC Commands
+
+| Command | Beschreibung |
+|---|---|
+| `/plan` | Anforderungen pruefen, Risiken bewerten, Implementierungsplan erstellen |
+| `/build-fix` | Build-System erkennen und Fehler inkrementell fixen |
+| `/code-review` | Code Review (lokal oder GitHub PR) |
+| `/test-coverage` | Coverage analysieren, Luecken finden, Tests generieren |
+| `/review-pr` | Umfassendes PR Review mit spezialisierten Agents |
+| `/checkpoint` | Workflow-Checkpoints erstellen und verifizieren |
+| `/update-docs` | Dokumentation aus Source-of-Truth synchronisieren |
+| `/update-codemaps` | Architektur-Codemaps generieren |
+| `/refactor-clean` | Dead Code sicher identifizieren und entfernen |
+| `/harness-audit` | Repository-Audit mit priorisierter Scorecard |
+| `/quality-gate` | ECC Quality Pipeline ausfuehren |
+| `/santa-loop` | Dual-Review Convergence Loop (zwei Reviewer muessen zustimmen) |
+| `/model-route` | Bestes Model-Tier fuer aktuelle Aufgabe empfehlen |
+| Sprachspezifisch | `/rust-review`, `/rust-build`, `/rust-test`, `/go-review`, `/go-build`, `/go-test`, `/kotlin-review`, `/kotlin-build`, `/kotlin-test`, `/cpp-review`, `/cpp-build`, `/cpp-test`, `/python-review`, `/flutter-review`, `/flutter-build`, `/flutter-test` |
+
+### ECC installieren
+
+```bash
+# Repository klonen
+git clone https://github.com/affaan-m/everything-claude-code.git /tmp/everything-claude-code
+
+# Minimal-Profil installieren (ohne Hooks Runtime)
+cd /tmp/everything-claude-code && ./install.sh --profile minimal --target claude
+
+# Oder: Volles Profil mit Hooks
+cd /tmp/everything-claude-code && ./install.sh --target claude
+```
+
+> **Wichtig:** Nicht mit dem Claude Code Plugin (`/plugin install`) kombinieren – waehle einen Installationspfad.
+
+### ECC deinstallieren
+
+```bash
+cd /tmp/everything-claude-code && ./install.sh --reset --target claude
+```
+
+---
+
 ## Installation - Komplettsetup
 
 ### 1. Bun installieren (Voraussetzung fuer gstack)
@@ -345,7 +444,14 @@ npx claude-mem install
 /plugin install frontend-design@claude-plugins-official
 ```
 
-### 5. GitNexus einrichten
+### 5. ECC installieren
+
+```bash
+git clone https://github.com/affaan-m/everything-claude-code.git /tmp/everything-claude-code
+cd /tmp/everything-claude-code && ./install.sh --profile minimal --target claude
+```
+
+### 6. GitNexus einrichten
 
 ```bash
 cd dein-projekt
@@ -353,11 +459,11 @@ npx gitnexus analyze
 npx gitnexus setup
 ```
 
-### 6. Skills in claude.ai installieren
+### 7. Skills in claude.ai installieren
 
 Oeffne [claude.ai/customize/skills](https://claude.ai/customize/skills) und installiere alle Anthropic Skills.
 
-### 7. Claude Code neustarten
+### 8. Claude Code neustarten
 
 ```
 /exit
@@ -484,4 +590,5 @@ Dieses Setup-Guide ist frei verfuegbar. Die einzelnen Tools haben eigene Lizenze
 - Superpowers: MIT
 - claude-mem: AGPL-3.0
 - GitNexus: MIT
+- ECC: MIT
 - Anthropic Skills: Siehe jeweilige LICENSE.txt
