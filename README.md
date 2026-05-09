@@ -161,7 +161,7 @@ MCP-Server werden in `.mcp.json` im Projektverzeichnis oder global konfiguriert:
 
 ## gstack
 
-[gstack](https://github.com/garrytan/gstack) von Garry Tan (Y Combinator CEO) - 23 opinionierte Tools die als virtuelles Engineering-Team fungieren. 65.8K Stars.
+[gstack](https://github.com/garrytan/gstack) von Garry Tan (Y Combinator CEO) - 45+ opinionierte Tools die als virtuelles Engineering-Team fungieren. v1.29.0.0.
 
 ### Sprint-Workflow
 
@@ -180,6 +180,7 @@ Think > Plan > Build > Review > Test > Ship > Reflect
 | `/plan-eng-review` | Eng Manager | Architektur, Datenfluss, Diagramme, Edge Cases, Tests |
 | `/plan-design-review` | Senior Designer | Jede Design-Dimension 0-10 bewerten, AI Slop Detection |
 | `/plan-devex-review` | DX Lead | Developer Experience Review, TTHW Benchmarks, 20-45 Forcing Questions |
+| `/plan-tune` | Plan Tuner | Erklaerungstiefe und Pacing von Reviews anpassen |
 | `/autoplan` | Review Pipeline | CEO + Design + Eng Review automatisch hintereinander |
 
 #### Design
@@ -198,6 +199,8 @@ Think > Plan > Build > Review > Test > Ship > Reflect
 | `/review` | Staff Engineer | Pre-Landing PR Review, findet Bugs die CI nicht findet |
 | `/investigate` | Debugger | Systematisches Root-Cause Debugging in 4 Phasen |
 | `/codex` | Second Opinion | Unabhaengiges Code Review von OpenAI Codex CLI |
+| `/health` | Code Quality | Gewichteter 0-10 Composite Score mit Trend-Tracking |
+| `/skillify` | Skill Creator | Coding-Patterns aus git-History extrahieren und als Skills generieren |
 
 #### QA & Testing
 
@@ -207,7 +210,9 @@ Think > Plan > Build > Review > Test > Ship > Reflect
 | `/qa-only` | QA Reporter | Nur Bug-Report ohne Code-Aenderungen |
 | `/browse` | Browser | Headless Browser fuer Navigation, Screenshots, Interaktion |
 | `/benchmark` | Performance Engineer | Page Load, Core Web Vitals, Resource Sizes |
+| `/benchmark-models` | Model Benchmarker | AI-Model Performance vergleichen |
 | `/canary` | SRE | Post-Deploy Monitoring fuer Errors und Performance |
+| `/scrape` | Data Extractor | Webseiten strukturiert scrapen |
 
 #### Shipping & Deployment
 
@@ -215,7 +220,9 @@ Think > Plan > Build > Review > Test > Ship > Reflect
 |---|---|---|
 | `/ship` | Release Engineer | Tests, Coverage, Push, PR erstellen |
 | `/land-and-deploy` | Release Engineer | PR mergen, CI abwarten, Production Health verifizieren |
+| `/landing-report` | Release Reporter | Post-Landing Bericht generieren |
 | `/document-release` | Technical Writer | Alle Projekt-Docs automatisch aktualisieren |
+| `/setup-deploy` | DevOps | Deploy-Plattform erkennen und konfigurieren (Fly, Vercel, Netlify, etc.) |
 
 #### Security & Safety
 
@@ -234,6 +241,14 @@ Think > Plan > Build > Review > Test > Ship > Reflect
 | `/learn` | Memory | Projekt-spezifische Learnings verwalten |
 | `/gstack-upgrade` | Self-Updater | gstack auf neueste Version updaten |
 | `/pair-agent` | Multi-Agent | Browser mit anderem AI Agent teilen |
+| `/open-gstack-browser` | Browser | AI-gesteuertes Chromium mit Sidebar Extension starten |
+| `/setup-browser-cookies` | Auth | Browser-Cookies aus echtem Chrome importieren |
+| `/devex-review` | DX Auditor | Live Developer Experience testen und bewerten |
+| `/make-pdf` | PDF Generator | PDFs aus Markdown/HTML generieren |
+| `/context-save` | Context | Arbeitsfortschritt speichern fuer spaetere Sessions |
+| `/context-restore` | Context | Gespeicherten Kontext wiederherstellen |
+| `/setup-gbrain` | gbrain | gbrain Code-Indexierung einrichten |
+| `/sync-gbrain` | gbrain | gbrain Index synchronisieren |
 
 ### gstack installieren
 
