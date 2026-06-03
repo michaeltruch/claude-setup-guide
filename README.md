@@ -140,6 +140,11 @@ MCP-Server verbinden Claude Code mit externen Tools und APIs.
 | **Computer Use** | macOS Desktop-Automatisierung |
 | **GitNexus** | Code Knowledge Graph, Impact-Analyse, Refactoring, PR-Review |
 | **Google Drive** | Dateien lesen, erstellen, durchsuchen |
+| **Perplexity** | KI-Websuche mit Quellenangaben, Research, Faktencheck |
+| **Supabase** | Datenbank-Management, Schema, Queries, RLS direkt aus Claude |
+| **Context7** | Library-Docs on-demand laden (React, Next.js, etc.) — immer aktuell |
+| **Playwright** | Browser-Automatisierung, Screenshots, E2E-Tests, Web-Scraping |
+| **Firecrawl** | Webseiten crawlen, scrapen und als Markdown extrahieren |
 
 ### MCP-Server konfigurieren
 
@@ -527,7 +532,28 @@ npx gitnexus analyze
 npx gitnexus setup
 ```
 
-### 8. Skills in claude.ai installieren
+### 8. MCP-Server installieren
+
+```bash
+# Context7 — Library-Docs on-demand (kostenlos, kein Key)
+claude mcp add context7 -- npx -y @upstash/context7-mcp@latest
+
+# Playwright — Browser-Automatisierung + Screenshots (lokal, kein Key)
+claude mcp add playwright -- npx -y @anthropic-ai/mcp-server-playwright@latest
+
+# Supabase — DB-Management direkt aus Claude (eigenen Access Token + Project Ref einsetzen)
+claude mcp add supabase -- npx -y @anthropic-ai/mcp-server-supabase@latest \
+  --access-token DEIN_SUPABASE_ACCESS_TOKEN \
+  --project-ref DEIN_PROJECT_REF
+
+# Perplexity — KI-Websuche (API Key von perplexity.ai/settings/api)
+claude mcp add perplexity -e PERPLEXITY_API_KEY=DEIN_KEY -- npx -y @anthropic-ai/mcp-server-perplexity@latest
+
+# Firecrawl — Webseiten crawlen/scrapen (API Key von firecrawl.dev)
+claude mcp add firecrawl -e FIRECRAWL_API_KEY=DEIN_KEY -- npx -y firecrawl-mcp
+```
+
+### 9. Skills in claude.ai installieren
 
 Oeffne [claude.ai/customize/skills](https://claude.ai/customize/skills) und installiere alle Anthropic Skills.
 
